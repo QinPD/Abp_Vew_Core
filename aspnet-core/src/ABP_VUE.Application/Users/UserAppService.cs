@@ -51,7 +51,7 @@ namespace ABP_VUE.Users
             _abpSession = abpSession;
             _logInManager = logInManager;
         }
-
+        
         public override async Task<UserDto> CreateAsync(CreateUserDto input)
         {
             CheckCreatePermission();
@@ -74,7 +74,7 @@ namespace ABP_VUE.Users
 
             return MapToEntityDto(user);
         }
-
+        [AbpAuthorize(PermissionNames.Button_Edit)]
         public override async Task<UserDto> UpdateAsync(UserDto input)
         {
             CheckUpdatePermission();
